@@ -1,0 +1,82 @@
+/* ===== 全站共用字體與背景設定 ===== */
+body {
+  font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+  background: linear-gradient(to bottom, #f5fff7, #d3f4e1);
+  margin: 0;
+  padding: 0;
+  color: #2e3d3f;
+}
+
+/* ===== 導覽列樣式 ===== */
+nav {
+  background: linear-gradient(to right, #2f4f4f, #3cb371);
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ===== 手機版漢堡選單 ===== */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  #nav-links {
+    display: none;
+  }
+  #hamburger {
+    display: flex;
+  }
+}
+
+/* ===== 按鈕樣式 ===== */
+.btn-primary {
+  background-color: #3cb371;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background-color: #2f8a63;
+}
+
+/* ===== 區塊設計 ===== */
+.section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* ===== 頁尾樣式 ===== */
+footer {
+  background: #2f4f4f;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+footer a {
+  color: #9fe6b8;
+  text-decoration: none;
+  margin: 0 10px;
+}
+footer a:hover {
+  text-decoration: underline;
+}

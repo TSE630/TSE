@@ -1,0 +1,119 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南方之境 Southern Expanse</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+    .section-card {
+      background-color: #ffffffcc;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      max-width: 960px;
+      transition: transform 0.3s ease;
+    }
+    .section-card:hover {
+      transform: scale(1.02);
+    }
+    .image-banner {
+      width: 100%;
+      height: 300px;
+      background: url('images/banner.jpg') center/cover no-repeat;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .img-side {
+      float: right;
+      margin-left: 20px;
+      max-width: 45%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .btn-primary {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+    @media(max-width: 768px) {
+      .img-side {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <main>
+    <div class="image-banner"></div>
+
+    <section class="section-card fade-in">
+      <h1>🌴 歡迎來到南方之境</h1>
+      <img src="images/village.jpg" alt="南島村莊圖" class="img-side">
+      <p>這裡是以南島文化與 Minecraft 生存 RPG 為核心的伺服器，擁有豐富的村莊、副本與 Ely 幣經濟系統。選擇你的村莊，發展自己的家園，挑戰各式副本，參與村落競賽與活動，體驗真正屬於你的冒險！</p>
+      <a href="whitelist.html" class="btn-primary">申請加入</a>
+    </section>
+
+    <section class="section-card fade-in">
+      <h2>🔍 關於我們</h2>
+      <img src="images/about.jpg" alt="伺服器介紹圖" class="img-side">
+      <p>南方之境是一個由台灣 Minecraft 團隊打造的沉浸式 RPG 生存伺服器，主打合作、村莊經營、地圖探索與副本挑戰。透過獨特的 Ely 經濟系統與每日任務，玩家不只能享受建築與冒險，還能參與伺服器治理與活動發展。</p>
+    </section>
+
+    <section class="section-card fade-in">
+      <h2>👥 團隊介紹</h2>
+      <img src="images/team.jpg" alt="團隊合照或工作照" class="img-side">
+      <ul>
+        <li><strong>伺服器主理人：</strong>管理與世界設計、平衡玩法</li>
+        <li><strong>技術開發：</strong>插件開發、Discord Bot、網站整合</li>
+        <li><strong>建築組：</strong>南島主題建築製作、地圖美化</li>
+        <li><strong>美術與文宣：</strong>形象圖製作、活動文案、Logo 設計</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JS 載入導覽列與頁尾 -->
+  <script>
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+  </script>
+</body>
+</html>

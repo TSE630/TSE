@@ -1,0 +1,40 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登入 - 南方之境</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- 導覽列 -->
+  <div id="nav-placeholder"></div>
+
+  <main class="section">
+    <h2>🔐 玩家登入</h2>
+    <form action="#" method="post">
+      <label for="username">使用者名稱 / Minecraft ID</label><br>
+      <input type="text" id="username" name="username" required><br><br>
+
+      <label for="password">密碼</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button class="btn-primary" type="submit">登入</button>
+    </form>
+  </main>
+
+  <!-- 頁尾 -->
+  <div id="footer-placeholder"></div>
+
+  <!-- JS 載入導覽列與頁尾 -->
+  <script>
+    fetch("components/nav.html").then(res => res.text()).then(data => {
+      document.getElementById("nav-placeholder").innerHTML = data;
+    });
+    fetch("components/footer.html").then(res => res.text()).then(data => {
+      document.getElementById("footer-placeholder").innerHTML = data;
+    });
+  </script>
+</body>
+</html>
