@@ -3,38 +3,42 @@
   <div class="nav-container">
     <a href="index.html" class="nav-logo">南方之境</a>
     <ul class="nav-menu">
-      <li><a href="index.html">首頁</a></li>
-      <li><a href="whitelist.html">白名單申請</a></li>
-      <li><a href="map.html">村莊地圖</a></li>
-      <li><a href="ely.html">ELY幣系統</a></li>
-      <li><a href="login.html">登入</a></li>
+      <li><a href="index.html"><i class="fa fa-home"></i> 首頁</a></li>
+      <li><a href="whitelist.html"><i class="fa fa-id-card"></i> 白名單申請</a></li>
+      <li><a href="map.html"><i class="fa fa-map"></i> 村莊地圖</a></li>
+      <li><a href="ely.html"><i class="fa fa-coins"></i> ELY幣系統</a></li>
+      <li><a href="login.html"><i class="fa fa-sign-in-alt"></i> 登入</a></li>
     </ul>
   </div>
 </nav>
 
 <style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 .navbar {
-  background: linear-gradient(90deg, #00897b, #4db6ac);
-  padding: 15px 30px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background: rgba(0, 137, 123, 0.75);
+  backdrop-filter: blur(10px);
+  padding: 20px 30px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
   animation: slideDown 0.5s ease-out;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 @keyframes slideDown {
   from { transform: translateY(-100%); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 .nav-container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .nav-logo {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   color: white;
   text-decoration: none;
@@ -46,19 +50,38 @@
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 24px;
+  gap: 28px;
 }
 .nav-menu li a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: white;
   text-decoration: none;
   font-size: 18px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
   transition: background 0.3s, transform 0.2s, color 0.3s;
+  position: relative;
+}
+.nav-menu li a::after {
+  content: '';
+  position: absolute;
+  bottom: 5px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: #ffe082;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: left;
+}
+.nav-menu li a:hover::after {
+  transform: scaleX(1);
 }
 .nav-menu li a:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
   color: #ffe082;
 }
 </style>
