@@ -1,109 +1,128 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>南方之境 Southern Expanse</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>南方之境 | Southern Expanse</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    :root {
+      --primary-color: #00897b;
+      --accent-color: #4db6ac;
+      --section-light: #e0f2f1;
+      --section-dark: #004d40;
+      --text-light: #ffffff;
+      --text-dark: #222222;
+    }
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #e0f2f1;
-      color: #004d40;
+      background: #f3fefc;
+      color: var(--text-dark);
       overflow-x: hidden;
     }
-    h1, h2, h3, h4 {
-      margin: 0;
-    }
-    section {
-      padding: 60px 20px;
+    header.hero {
+      background: linear-gradient(to right, #00695c, #26a69a);
+      color: white;
+      padding: 120px 40px 80px;
       text-align: center;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .hero {
+      background-image: url('../images/hero.jpg');
+      background-size: cover;
+      background-position: center;
       position: relative;
     }
-    .hero img {
-      width: 100%;
-      height: auto;
+    header.hero h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
     }
-    .hero-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(0, 0, 0, 0.4);
-      color: white;
-      padding: 30px;
-      border-radius: 15px;
-      backdrop-filter: blur(5px);
+    header.hero p {
       font-size: 1.4rem;
+      max-width: 700px;
+      margin: auto;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
     }
-    .features, .creators, .team {
-      background: #ffffff;
-      border-radius: 20px;
-      margin: 30px auto;
-      max-width: 1100px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .feature-grid, .creator-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 20px;
-    }
-    .card, .creator-card {
-      background: #e0f7fa;
-      padding: 25px;
-      border-radius: 15px;
-      max-width: 300px;
-      transition: transform 0.3s ease, box-shadow 0.3s, background 0.3s;
-      font-size: 1.1rem;
-    }
-    .card:hover, .creator-card:hover {
-      transform: scale(1.08);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
-      background: #b2ebf2;
-    }
-    .creator-card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-    .btn-primary {
+    .cta {
+      margin-top: 30px;
       display: inline-block;
-      margin-top: 25px;
-      background: #00796b;
-      color: white;
+      background: #fff;
+      color: var(--primary-color);
       padding: 12px 30px;
-      border-radius: 25px;
-      text-decoration: none;
+      border-radius: 30px;
       font-weight: bold;
-      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      text-decoration: none;
+      transition: all 0.3s ease;
     }
-    .btn-primary:hover {
-      background: #004d40;
-      transform: scale(1.07);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    .cta:hover {
+      background: var(--primary-color);
+      color: white;
     }
-    .team img {
-      margin-top: 20px;
-      max-width: 600px;
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .features, .team {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .features h2, .team h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .feature-item {
+      background: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+    .feature-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+    }
+    .feature-item i {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+      margin-right: 10px;
+    }
+    .team-info {
+      background: var(--section-light);
+      padding: 50px;
+      border-radius: 16px;
+      text-align: center;
+    }
+    .team-info p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: auto;
+    }
+    #music-player {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: rgba(0,0,0,0.6);
+      padding: 10px;
+      border-radius: 10px;
+    }
+    #player-count {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.9);
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 1rem;
+      color: var(--primary-color);
     }
   </style>
 </head>
 <body>
-  <!-- 導覽列導入 -->
   <div id="navbar"></div>
   <script>
     fetch('components/nav.html')
@@ -111,79 +130,44 @@
       .then(data => document.getElementById('navbar').innerHTML = data);
   </script>
 
-  <!-- 首頁主視覺區塊 -->
-  <section class="hero show">
-    <img src="images/banner.jpg" alt="主視覺橫幅">
-    <div class="hero-text">
-      <h1 style="font-size: 2.4rem;">南方之境 Southern Expanse</h1>
-      <p>一座結合部落、奇幻、生存、副本與創作的 Minecraft 世界</p>
-    </div>
-  </section>
+  <header class="hero">
+    <div id="player-count">線上人數：23 人</div>
+    <h1><i class="fa-solid fa-earth-asia"></i> 南方之境 Southern Expanse</h1>
+    <p>專屬台灣玩家的 Minecraft RPG 生存伺服器，在文化與探索中建構你自己的村莊傳說。</p>
+    <a class="cta" href="../WEB/whitelist.html">立即加入冒險</a>
+  </header>
 
-  <!-- 伺服器特色區塊 -->
   <section class="features">
-    <h2 style="font-size: 2rem;">伺服器特色</h2>
-    <div class="feature-grid">
-      <div class="card">
-        <h3>多元村莊體系</h3>
-        <p>每位玩家皆可選擇所屬村莊發展居所、農場、商店與人際關係。</p>
-      </div>
-      <div class="card">
-        <h3>豐富副本挑戰</h3>
-        <p>定期開放神殿、地底城等副本，多人共鬥贏取稀有素材。</p>
-      </div>
-      <div class="card">
-        <h3>ELY幣經濟系統</h3>
-        <p>結合 Ely 幣交易、薪資、兌換與獎勵，打造專屬經濟圈。</p>
-      </div>
+    <h2><i class="fa-solid fa-fire"></i> 核心玩法精選</h2>
+    <div class="features-grid">
+      <div class="feature-item"><i class="fa-solid fa-location-dot"></i><strong>六大村莊自由選擇</strong><br>擁有各自文化與建築風格，帶給你不同體驗。</div>
+      <div class="feature-item"><i class="fa-solid fa-scroll"></i><strong>副本挑戰</strong><br>搭配劇情的副本與 BOSS 系統，享受沉浸式冒險。</div>
+      <div class="feature-item"><i class="fa-solid fa-handshake"></i><strong>玩家交易與經濟</strong><br>以 Ely 幣為核心的自由交易市場與商城系統。</div>
+      <div class="feature-item"><i class="fa-solid fa-house-user"></i><strong>房地產與自建領地</strong><br>購地、建設、開店，打造屬於你的村莊事業。</div>
+      <div class="feature-item"><i class="fa-solid fa-users"></i><strong>村莊陣營系統</strong><br>每位玩家從六大村莊擇一效忠，共創榮耀。</div>
+      <div class="feature-item"><i class="fa-solid fa-palette"></i><strong>自定義資源包</strong><br>專屬材質、裝備與粒子，體驗視覺與音效強化。</div>
     </div>
   </section>
 
-  <!-- 創作者合作專區 -->
-  <section class="creators">
-    <h2 style="font-size: 2rem;">🎥 創作者合作申請</h2>
-    <p>我們歡迎 Minecraft 實況主、YouTuber、建築師加入合作。</p>
-    <div class="creator-grid">
-      <div class="creator-card">
-        <img src="images/creator1.jpg" alt="創作者代表">
-        <h4>影片曝光與 Ely 幣贊助</h4>
-        <p>完成影片合作可獲 Ely 幣與平台推薦資源。</p>
-      </div>
-      <div class="creator-card">
-        <img src="images/creator2.jpg" alt="合作方式">
-        <h4>專屬創作者身份組</h4>
-        <p>擁有專屬標章與 Discord 創作者頻道。</p>
-      </div>
-    </div>
-    <a href="apply_creator.html" class="btn-primary">了解更多合作詳情</a>
-  </section>
-
-  <!-- 團隊介紹 -->
   <section class="team">
-    <h2 style="font-size: 2rem;">開發團隊 Nexelink</h2>
-    <p>由台灣開發者組成，擁有超過 10 年 Minecraft 經營經驗。</p>
-    <img src="images/team.jpg" alt="團隊合照">
+    <h2><i class="fa-solid fa-people-group"></i> 創辦理念與團隊</h2>
+    <div class="team-info">
+      <p>我們是一群熱愛 Minecraft 並深耕創作的玩家，希望結合南島文化與 RPG 元素，打造一個真正屬於台灣的 Minecraft 伺服器世界。</p>
+    </div>
   </section>
 
-  <!-- Footer 導入 -->
   <div id="footer"></div>
   <script>
     fetch('components/footer.html')
       .then(res => res.text())
       .then(data => document.getElementById('footer').innerHTML = data);
-
-    // 滾動進場動畫效果
-    const sections = document.querySelectorAll('section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, {
-      threshold: 0.1
-    });
-    sections.forEach(section => observer.observe(section));
   </script>
+
+  <div id="music-player">
+    <audio controls autoplay loop>
+      <source src="../music/theme.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
 </body>
 </html>

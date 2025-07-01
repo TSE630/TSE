@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>伺服器介紹 | 南方之境</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --primary-color: #00897b;
+      --section-bg1: #e0f2f1;
+      --section-bg2: #e8f5e9;
+      --accent-color: #4db6ac;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f7f5;
+      color: #222;
+    }
+    .section {
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: auto;
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2.6rem;
+    }
+    p {
+      line-height: 1.8;
+      font-size: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    .feature-box {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s;
+    }
+    .feature-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+    }
+    .feature-box h3 {
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+    .feature-box i {
+      font-size: 1.6rem;
+      margin-right: 10px;
+      color: var(--accent-color);
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: var(--primary-color);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #00695c;
+    }
+    .team-box {
+      background: #fff;
+      padding: 40px;
+      margin-top: 60px;
+      border-radius: 20px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+    .section-alt {
+      background: var(--section-bg2);
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <script>
+    fetch('components/nav.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+  </script>
+
+  <section class="section" style="background: var(--section-bg1)">
+    <h1><i class="fa-solid fa-mountain-sun"></i> 南方之境伺服器</h1>
+    <p>
+      南方之境是一個以「放鬆、合作、探索」為核心理念的 Minecraft 生存型伺服器。
+      這裡融合了 RPG 冒險、副本探索、交易系統與生活模擬，提供一個適合長期遊玩的多樣化世界。
+    </p>
+    <div class="team-box">
+      <h2><i class="fa-solid fa-users"></i> 我們是誰</h2>
+      <p>由一群熱愛 Minecraft 的創作者、建築師與企劃人共同打造，致力於提供最沉浸、最有文化感的伺服器世界。</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2><i class="fa-solid fa-cubes"></i> 主要功能一覽</h2>
+    <div class="features">
+      <div class="feature-box">
+        <h3><i class="fa-solid fa-house-chimney"></i> 六大村莊分區</h3>
+        <p>每位玩家可選擇一個村莊作為出生地，享有專屬社群、資源分配與角色扮演發展。</p>
+      </div>
+      <div class="feature-box">
+        <h3><i class="fa-solid fa-scroll"></i> RPG 任務與副本</h3>
+        <p>設有多條主線與支線劇情，搭配副本闖關、怪物戰鬥與 Boss 系統。</p>
+      </div>
+      <div class="feature-box">
+        <h3><i class="fa-solid fa-coins"></i> Ely幣經濟系統</h3>
+        <p>整合 Ely 幣交易、轉帳、銀行與排行榜，支持商城與村莊經濟流通。</p>
+      </div>
+      <div class="feature-box">
+        <h3><i class="fa-solid fa-store"></i> 玩家房地產系統</h3>
+        <p>每個村莊提供區域購地與裝潢功能，可設立個人商店與博物館。</p>
+      </div>
+      <div class="feature-box">
+        <h3><i class="fa-solid fa-swords"></i> 排位 PvP 系統</h3>
+        <p>定期舉辦 PvP 排位賽與獎勵賽事，提升競技與觀賞性。</p>
+      </div>
+      <div class="feature-box">
+        <h3><i class="fa-solid fa-gem"></i> 自定義物品與模組</h3>
+        <p>加入專屬礦物、合成表、神器與裝備特效，豐富遊戲內容。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <h2><i class="fa-solid fa-eye"></i> 我們的願景</h2>
+    <p>
+      南方之境希望成為台灣 Minecraft 玩家最喜愛的慢節奏 RPG 伺服器，
+      不論你是建築師、冒險家、商人還是故事探索者，都能找到屬於自己的天地。
+    </p>
+    <div style="text-align:center">
+      <a href="../WEB/whitelist.html" class="cta-button"><i class="fa-solid fa-right-to-bracket"></i> 立即加入我們</a>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <script>
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>
