@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>南方之境 | 白名單申請</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('../images/whitelist-bg.jpg') center/cover no-repeat fixed;
+      color: #263238;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 900px;
+      margin: 100px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease;
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .steps {
+      font-size: 0.95rem;
+      margin-bottom: 30px;
+      background: #e0f2f1;
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 5px solid #26a69a;
+    }
+    label {
+      display: block;
+      margin: 20px 0 10px;
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #bdbdbd;
+      transition: box-shadow 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 5px #26a69a;
+      border-color: #26a69a;
+    }
+    .village-preview {
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #388e3c;
+      min-height: 30px;
+    }
+    button {
+      background: #26a69a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      margin-top: 30px;
+      transition: background 0.3s, transform 0.2s;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00796b;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <script>
+    fetch('components/nav.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+  </script>
+
+  <div class="container">
+    <h1>申請加入白名單</h1>
+    <div class="steps">
+      <ol>
+        <li>填寫下方完整資料</li>
+        <li>選擇你想加入的村莊</li>
+        <li>等待管理員審核通過</li>
+        <li>獲得入服資格並開啟冒險</li>
+      </ol>
+    </div>
+
+    <form>
+      <label for="mcid">Minecraft ID</label>
+      <input type="text" id="mcid" required placeholder="範例：SkyFox_88">
+
+      <label for="dcid">Discord ID</label>
+      <input type="text" id="dcid" required placeholder="範例：User#1234">
+
+      <label for="age">年齡</label>
+      <input type="number" id="age" min="10" max="99" required placeholder="請填寫數字">
+
+      <label for="village">選擇村莊</label>
+      <select id="village" onchange="updateVillagePreview()" required>
+        <option disabled selected>請選擇一個村莊</option>
+        <option value="旭日村">旭日村（日出之地）</option>
+        <option value="銀風村">銀風村（森林與風之守護）</option>
+        <option value="星瀚村">星瀚村（觀星之塔）</option>
+        <option value="蒼穹村">蒼穹村（天空與機械文化）</option>
+        <option value="嶼原村">嶼原村（大地與狩獵）</option>
+        <option value="雨港村">雨港村（港口與貿易）</option>
+      </select>
+      <div class="village-preview" id="villagePreview"></div>
+
+      <label for="intro">自我介紹 / 加入動機</label>
+      <textarea id="intro" rows="4" required placeholder="讓我們更了解你與你的遊玩風格..."></textarea>
+
+      <button type="submit">送出申請</button>
+    </form>
+  </div>
+
+  <div id="footer"></div>
+  <script>
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+
+    function updateVillagePreview() {
+      const map = {
+        "旭日村": "☀️ 日出之地，擅長農業與合作。",
+        "銀風村": "🌲 被森林與風包圍，擅長自然魔法。",
+        "星瀚村": "✨ 高塔觀星者之村，喜歡探索與冒險。",
+        "蒼穹村": "⚙️ 天空上的村落，以紅石與機械聞名。",
+        "嶼原村": "🪵 山林狩獵者，與自然共生。",
+        "雨港村": "🌧️ 與雨水共存，港口貿易繁盛。"
+      };
+      const val = document.getElementById('village').value;
+      document.getElementById('villagePreview').innerText = map[val] || '';
+    }
+  </script>
+</body>
+</html>

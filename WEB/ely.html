@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ELY 幣購買中心 | 南方之境</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e8f5e9);
+      color: #004d40;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 40px;
+      background: #ffffffc9;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+    }
+    .ely-options {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .ely-card {
+      background: #e0f2f1;
+      border-radius: 15px;
+      padding: 30px;
+      width: 260px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 3px solid transparent;
+    }
+    .ely-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+      background: #b2dfdb;
+    }
+    .ely-card.active {
+      border-color: #00796b;
+      background: #a7ffeb;
+    }
+    .ely-card img {
+      width: 80px;
+      margin-bottom: 15px;
+    }
+    .ely-card h3 {
+      font-size: 1.5rem;
+    }
+    .ely-card p {
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+    .btn-pay {
+      margin-top: 40px;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #00796b;
+      color: white;
+      padding: 15px;
+      font-size: 1.2rem;
+      text-align: center;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .btn-pay:hover {
+      background: #004d40;
+      transform: scale(1.05);
+    }
+  .announcement-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: #f1f8e9;
+    border-left: 5px solid #aed581;
+    border-radius: 10px;
+    margin-top: 40px;
+    padding: 15px;
+  }
+  .marquee-text {
+   display: inline-block;
+   padding-left: 100%;
+   animation: scrollText 25s linear infinite;
+   font-size: 1rem;
+   color: #33691e;
+  }
+  .marquee-text span {
+   font-weight: bold;
+   color: #558b2f;
+  }
+  @keyframes scrollText {
+   0% { transform: translateX(0); }
+   100% { transform: translateX(-100%); }
+  }
+  .announcement span {
+   font-weight: bold;
+   color: #558b2f;
+  }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <script>
+    fetch('components/nav.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+  </script>
+
+  <div class="container">
+    <h1>購買 Ely 幣</h1>
+    <div class="ely-options">
+      <div class="ely-card" onclick="selectOption(this, 100)">
+        <img src="../images/coin1.png" alt="100 Ely">
+        <h3>100 Ely</h3>
+        <p>NT$100</p>
+      </div>
+      <div class="ely-card" onclick="selectOption(this, 250)">
+        <img src="../images/coin2.png" alt="250 Ely">
+        <h3>250 Ely</h3>
+        <p>NT$200</p>
+      </div>
+      <div class="ely-card" onclick="selectOption(this, 500)">
+        <img src="../images/coin3.png" alt="500 Ely">
+        <h3>500 Ely</h3>
+        <p>NT$400</p>
+      </div>
+    </div>
+    <a href="#" class="btn-pay" id="payBtn">選擇方案後前往付款</a>
+
+   <div class="announcement-marquee">
+  <div class="marquee-text">
+    ⭐ 感謝 <span>KingYu</span> 購買 <span>100 Ely</span>！
+    ⭐ 感謝 <span>Lily</span> 贊助 <span>250 Ely</span>！
+    ⭐ 感謝 <span>SkyFox</span> 購買 <span>500 Ely</span>！
+    ⭐ 感謝 <span>Mira</span> 贊助 <span>100 Ely</span>！
+  </div>
+</div>
+
+  </div>
+
+  <div id="footer"></div>
+  <script>
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+
+    let selectedAmount = 0;
+    function selectOption(el, amount) {
+      document.querySelectorAll('.ely-card').forEach(card => card.classList.remove('active'));
+      el.classList.add('active');
+      selectedAmount = amount;
+      document.getElementById('payBtn').innerText = `前往付款：${amount} Ely`;
+    }
+  </script>
+</body>
+</html>

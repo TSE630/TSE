@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>村莊地圖一覽 | 南方之境</title>
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5fbef;
+      color: #263238;
+    }
+    .map-container {
+      max-width: 1200px;
+      margin: 100px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      0% {opacity: 0; transform: translateY(30px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    .map-image {
+      text-align: center;
+      position: relative;
+    }
+    .map-image img {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .map-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .map-area {
+      position: absolute;
+      border-radius: 50%;
+      transition: transform 0.3s, box-shadow 0.3s;
+      pointer-events: auto;
+    }
+    .map-area:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+    .village-section {
+      margin-top: 80px;
+    }
+    .village-detail {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 80px;
+      align-items: center;
+    }
+    .village-detail:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    .village-detail img {
+      width: 45%;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      margin: 10px;
+    }
+    .village-text {
+      width: 50%;
+      padding: 20px;
+    }
+    .village-text h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .village-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar"></div>
+  <script>
+    fetch('components/nav.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+  </script>
+
+  <div class="map-container">
+    <h1>南方之境 村莊地圖總覽</h1>
+    <div class="map-image">
+      <img src="../images/village-map.png" alt="村莊地圖">
+      <div class="map-overlay">
+        <a href="../village/sunrise.html" class="map-area" style="top:15%; left:20%; width:10%; height:10%; background:rgba(255,200,100,0.3);"></a>
+        <a href="../village/silverwind.html" class="map-area" style="top:30%; left:40%; width:10%; height:10%; background:rgba(160,255,200,0.3);"></a>
+        <a href="../village/starsea.html" class="map-area" style="top:50%; left:25%; width:10%; height:10%; background:rgba(200,200,255,0.3);"></a>
+        <a href="../village/skygear.html" class="map-area" style="top:20%; left:60%; width:10%; height:10%; background:rgba(255,255,200,0.3);"></a>
+        <a href="../village/foresthunt.html" class="map-area" style="top:65%; left:50%; width:10%; height:10%; background:rgba(220,180,140,0.3);"></a>
+        <a href="../village/portrain.html" class="map-area" style="top:70%; left:70%; width:10%; height:10%; background:rgba(120,220,255,0.3);"></a>
+      </div>
+    </div>
+
+    <div class="village-section">
+      <div class="village-detail">
+        <img src="../images/village-sunrise.png" alt="旭日村">
+        <div class="village-text">
+          <h2>旭日村</h2>
+          <p>☀️ 位於東方日出之地，農業與合作為主軸，是最適合新手的起點。村內設有新手訓練場與公共農場。</p>
+        </div>
+      </div>
+      <div class="village-detail">
+        <img src="../images/village-silverwind.png" alt="銀風村">
+        <div class="village-text">
+          <h2>銀風村</h2>
+          <p>🌲 被森林與風包圍的村落，以自然魔法與生態建設聞名，村內設有樹屋與精靈廣場。</p>
+        </div>
+      </div>
+      <div class="village-detail">
+        <img src="../images/village-starsea.png" alt="星瀚村">
+        <div class="village-text">
+          <h2>星瀚村</h2>
+          <p>✨ 擁有觀星高塔的神秘村莊，居民多為探險者與學者，探索副本與研究機關為特色。</p>
+        </div>
+      </div>
+      <div class="village-detail">
+        <img src="../images/village-skygear.png" alt="蒼穹村">
+        <div class="village-text">
+          <h2>蒼穹村</h2>
+          <p>⚙️ 建築於空島之上，融合紅石與機械技術，設有飛空艇工坊與空中跳躍訓練場。</p>
+        </div>
+      </div>
+      <div class="village-detail">
+        <img src="../images/village-foresthunt.png" alt="嶼原村">
+        <div class="village-text">
+          <h2>嶼原村</h2>
+          <p>🪵 山林間的狩獵部落，與自然和諧共處，擁有豐富資源與部族任務挑戰。</p>
+        </div>
+      </div>
+      <div class="village-detail">
+        <img src="../images/village-portrain.png" alt="雨港村">
+        <div class="village-text">
+          <h2>雨港村</h2>
+          <p>🌧️ 位於濱海地帶，港口貿易與水上交通發達，設有市集、魚市與海盜副本。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+  <script>
+    fetch('components/footer.html')
+      .then(res => res.text())
+      .then(data => document.getElementById('footer').innerHTML = data);
+  </script>
+</body>
+</html>

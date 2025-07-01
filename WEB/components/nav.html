@@ -85,3 +85,11 @@
   color: #ffe082;
 }
 </style>
+<script>
+// nav hover 動態效果
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+  link.addEventListener('mouseover', () => link.style.color = '#b2dfdb');
+  link.addEventListener('mouseout', () => link.style.color = 'white');
+});
+</script>
